@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IntercomLE — Turn LE Audio Earbuds Into a 2-Person Intercom</title>
+  <meta name="description" content="Real-time Bluetooth LE Audio stereo intercom for Android 13+. Hand the Left earbud to Rider and Right earbud to Passenger. 100% local, zero monthly fees." />
+  <meta property="og:title" content="IntercomLE — One Pair of Earbuds. Two Voices." />
+  <meta property="og:description" content="Transform Bluetooth LE Audio earbuds into a real-time L⇄R intercom on Android 13+. Free 24h trial + lifetime unlock." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://intercomle-founder.github.io/intercomle-site/" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb left"></div>
+    <div class="ambient-orb right"></div>
+    <div class="ambient-orb gold"></div>
+  </div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/favicon.svg" alt="IntercomLE icon" />
+        <span>IntercomLE</span>
+        <span class="brand-badge">LE AUDIO</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how" data-i18n="nav_how">How It Works</a>
+        <a href="#compat" data-i18n="nav_compat">Earbuds</a>
+        <a href="#beta" data-i18n="nav_beta">Founding Beta</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+      </nav>
+
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="pt" type="button">PT</button>
+          <button class="lang-btn" data-lang="es" type="button">ES</button>
+        </div>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme"></button>
+        <a href="#beta" class="btn btn-gold nav-cta-desktop" data-i18n="nav_cta">Join Closed Beta</a>
+        <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileDrawer" class="mobile-drawer">
+      <a href="#how" data-i18n="nav_how">How It Works</a>
+      <a href="#compat" data-i18n="nav_compat">Earbuds</a>
+      <a href="#beta" data-i18n="nav_beta">Founding Beta</a>
+      <a href="support.html" data-i18n="nav_support">Support</a>
+      <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="foot_terms">Terms of Use</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero + Live Interactive Earbud Simulator -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal visible">
+          <span class="pill-eyebrow">
+            <span class="pulse-dot"></span>
+            <span data-i18n="hero_eyebrow">First-of-its-kind Android LE Audio Intercom</span>
+          </span>
+          <h1>
+            <span data-i18n="hero_title_1">One pair of earbuds. </span><span class="gradient-text" data-i18n="hero_title_grad">Two voices.</span><span data-i18n="hero_title_2"> Zero bulky helmet boxes.</span>
+          </h1>
+          <p class="hero-sub" data-i18n="hero_sub">
+            Hand the Left earbud to Person A and the Right earbud to Person B. IntercomLE turns compatible Bluetooth LE Audio (LC3) headsets into a real-time two-way intercom running 100% locally on your phone.
+          </p>
+          <div class="hero-actions">
+            <a href="#beta" class="btn btn-gold" data-i18n="hero_cta_beta">Apply for 20 Founding Member Spots</a>
+            <a href="#how" class="btn btn-outline" data-i18n="hero_cta_how">See How It Works</a>
+          </div>
+          <div class="trust-strip">
+            <span class="trust-chip"><strong>LE</strong> <span data-i18n="trust_le">Android 13+ LE Audio</span></span>
+            <span class="trust-chip"><strong class="mono">10ms</strong> <span data-i18n="trust_lc3">10 ms LC3 Frame Sync</span></span>
+            <span class="trust-chip"><strong>RAM</strong> <span data-i18n="trust_ram">100% Local RAM Audio</span></span>
+            <span class="trust-chip"><strong>24h</strong> <span data-i18n="trust_trial">24h Free Trial Included</span></span>
+          </div>
+        </div>
+
+        <!-- Interactive Device Cockpit Simulator -->
+        <div class="sim-shell reveal visible" aria-label="Interactive IntercomLE app preview">
+          <div class="sim-topbar">
+            <div class="sim-brand">
+              <span>IntercomLE</span>
+              <span class="sim-founding">FOUNDING MEMBER</span>
+            </div>
+            <div class="sim-live-pill">
+              <span class="pulse-dot"></span>
+              <span class="mono">LIVE</span>
+            </div>
+          </div>
+
+          <div class="hero-stage">
+            <div class="stage-labels">
+              <span class="stage-l" data-i18n="sim_stage_l">LEFT BUD (L)</span>
+              <span class="stage-mode" data-i18n="sim_stage_mode">CROSS VOICE L ⇄ R</span>
+              <span class="stage-r" data-i18n="sim_stage_r">RIGHT BUD (R)</span>
+            </div>
+
+            <svg class="stage-svg" viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Bezier Cross-Routing Curves matching EarbudHeroStage.kt -->
+              <path id="simArcL" class="arc-flow-l" d="M 74 44 C 145 12, 215 12, 286 44" stroke="var(--left-accent)" stroke-width="2.8" stroke-linecap="round" opacity="0.9" />
+              <path id="simArcR" class="arc-flow-r" d="M 286 76 C 215 108, 145 108, 74 76" stroke="var(--right-accent)" stroke-width="2.2" stroke-linecap="round" opacity="0.55" />
+
+              <!-- Left Earbud -->
+              <g transform="translate(24, 24)">
+                <rect x="6" y="4" width="42" height="58" rx="18" fill="var(--surface-elevated)" stroke="var(--left-accent)" stroke-width="2" />
+                <rect x="20" y="54" width="14" height="18" rx="7" fill="var(--surface-solid)" stroke="var(--left-accent)" stroke-width="1.5" />
+                <text x="27" y="38" text-anchor="middle" fill="var(--left-accent)" font-size="16" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">L</text>
+              </g>
+
+              <!-- Center Separation Ring -->
+              <g transform="translate(180, 60)">
+                <circle r="30" fill="var(--bg-deep)" stroke="var(--border-subtle)" stroke-width="4" />
+                <circle r="30" stroke="var(--left-accent)" stroke-width="4" stroke-dasharray="170 200" stroke-linecap="round" transform="rotate(-90)" />
+                <text id="simSepValue" y="-1" text-anchor="middle" fill="var(--text-primary)" font-size="14" font-weight="800" font-family="JetBrains Mono, monospace">96%</text>
+                <text y="12" text-anchor="middle" fill="var(--left-accent)" font-size="6.8" font-weight="800" letter-spacing="0.4" data-i18n="sim_sep_label">TRUE STEREO</text>
+              </g>
+
+              <!-- Right Earbud -->
+              <g transform="translate(284, 24)">
+                <rect x="6" y="4" width="42" height="58" rx="18" fill="var(--surface-elevated)" stroke="var(--right-accent)" stroke-width="2" />
+                <rect x="20" y="54" width="14" height="18" rx="7" fill="var(--surface-solid)" stroke="var(--right-accent)" stroke-width="1.5" />
+                <text x="27" y="38" text-anchor="middle" fill="var(--right-accent)" font-size="16" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">R</text>
+              </g>
+            </svg>
+
+            <div class="wave-panel">
+              <div class="wave-head mono">
+                <span data-i18n="sim_wave_label">LIVE DUAL-CHANNEL AUDIO SCOPE (L ≠ R)</span>
+                <span id="simMatrixReadout" style="color:var(--highlight-accent)">CROSS L⇄R</span>
+              </div>
+              <canvas id="simWaveCanvas" width="340" height="44" aria-hidden="true"></canvas>
+            </div>
+          </div>
+
+          <p class="bud-sub" style="margin:0 0 8px; text-align:center;" data-i18n="sim_tap_hint">Interactive demo — tap a bud below to simulate L vs R mic routing:</p>
+
+          <div class="sim-cards">
+            <button id="simBudL" class="sim-bud-btn speaking-l" type="button">
+              <div class="bud-head"><span data-i18n="sim_bud_l_title">Person A (Mic L)</span><span class="mono" style="color:var(--left-accent)">TX</span></div>
+              <div class="bud-sub" data-i18n="sim_bud_l_sub">Tap to speak → Ear R</div>
+              <div class="db-bar"><div id="simFillL" class="db-fill l"></div></div>
+            </button>
+            <button id="simBudR" class="sim-bud-btn" type="button">
+              <div class="bud-head"><span data-i18n="sim_bud_r_title">Person B (Mic R)</span><span class="mono" style="color:var(--right-accent)">TX</span></div>
+              <div class="bud-sub" data-i18n="sim_bud_r_sub">Tap to speak → Ear L</div>
+              <div class="db-bar"><div id="simFillR" class="db-fill r"></div></div>
+            </button>
+          </div>
+
+          <div class="sim-controls">
+            <div class="preset-row">
+              <button class="chip-btn active" data-matrix="cross" type="button" data-i18n="sim_matrix_cross">Cross L⇄R</button>
+              <button class="chip-btn" data-matrix="direct" type="button" data-i18n="sim_matrix_direct">Direct L→L</button>
+              <button class="chip-btn" data-matrix="silent" type="button" data-i18n="sim_matrix_silent">Silent Diag</button>
+            </div>
+            <div class="preset-row">
+              <button class="chip-btn" data-preset="studio" type="button" data-i18n="sim_preset_studio">Indoor • 100 Hz</button>
+              <button class="chip-btn active" data-preset="moto" type="button" data-i18n="sim_preset_moto">Moto • 200 Hz</button>
+              <button class="chip-btn" data-preset="ptt" type="button" data-i18n="sim_preset_ptt">PTT • Tactical</button>
+            </div>
+            <div class="palette-row">
+              <span style="font-size:0.74rem;font-weight:700;color:var(--text-secondary)" data-i18n="sim_palette_label">App Palette:</span>
+              <div class="palette-dots">
+                <button class="pal-dot active" data-pal="emerald" title="Emerald & Cyan" style="background:linear-gradient(135deg,#00e5a3,#38bdf8)" type="button"></button>
+                <button class="pal-dot" data-pal="moto" title="Orange & Red" style="background:linear-gradient(135deg,#f97316,#ef4444)" type="button"></button>
+                <button class="pal-dot" data-pal="violet" title="Violet & Magenta" style="background:linear-gradient(135deg,#a855f7,#ec4899)" type="button"></button>
+                <button class="pal-dot" data-pal="cobalt" title="Blue & Turquoise" style="background:linear-gradient(135deg,#3b82f6,#06b6d4)" type="button"></button>
+                <button class="pal-dot" data-pal="gold" title="Gold & Emerald" style="background:linear-gradient(135deg,#eab308,#10b981)" type="button"></button>
+              </div>
+            </div>
+            <div class="sim-telemetry mono">
+              <span id="simTelemetryPreset">HPF 200 Hz • Gate -34 dBFS</span>
+              <span data-i18n="sim_telemetry_verdict">Stereo Confirmed • 32 kHz • ~30–40 ms buf</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="band">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag" data-i18n="how_tag">3-Step Setup</span>
+          <h2 data-i18n="how_title">Up and talking in under 60 seconds</h2>
+          <p data-i18n="how_sub">No proprietary helmet mounts, no second phone needed, and no internet connection required on remote mountain roads.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-icon r">01</div>
+            <h3 data-i18n="step1_title">1. Enable LE Audio</h3>
+            <p data-i18n="step1_desc">Pair your compatible TWS headset, open Android Bluetooth gear icon settings, and switch ON 'LE Audio'.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon l">02</div>
+            <h3 data-i18n="step2_title">2. Share L &amp; R Earbuds</h3>
+            <p data-i18n="step2_desc">Rider wears the Left bud (L), passenger or partner wears the Right bud (R). Audio crosses L → R and R → L in real time.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon g">03</div>
+            <h3 data-i18n="step3_title">3. Run the 2-Tap Stereo Check</h3>
+            <p data-i18n="step3_desc">Tap only one earbud gently. IntercomLE measures real L/R separation live before you ever hit the road.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DSP Engineering -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag" data-i18n="tech_tag">Audio Engineering</span>
+          <h2 data-i18n="tech_title">Built like real DSP hardware, right on Android</h2>
+          <p data-i18n="tech_sub">Carefully tuned Kotlin audio loop aligned to Bluetooth LE Audio's 10 ms LC3 packet cadence.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal">
+            <div class="card-icon l mono">10ms</div>
+            <h3 data-i18n="feat1_title">10 ms LC3 Frame Alignment</h3>
+            <p data-i18n="feat1_desc">Captures and writes 10 ms chunks with low-latency AudioTrack FIFO tightening and hardware underrun tracking.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon r mono">200Hz</div>
+            <h3 data-i18n="feat2_title">Moto Wind Filter (HPF)</h3>
+            <p data-i18n="feat2_desc">Preset cuts engine &amp; helmet wind rumble below 200 Hz while keeping human speech frequencies crisp and intelligible.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon g mono">280ms</div>
+            <h3 data-i18n="feat3_title">Anti-Chop Noise Gate</h3>
+            <p data-i18n="feat3_desc">280 ms hold window, 5 dB hysteresis, and sample-rate-invariant smoothing keep syllable tails natural without dropouts.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon l">L≠R</div>
+            <h3 data-i18n="feat4_title">True Stereo Inspector</h3>
+            <p data-i18n="feat4_desc">Instantly distinguishes true L ≠ R dual microphones from headsets whose firmware clones 1 mic into duplicated mono.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon r">⚡</div>
+            <h3 data-i18n="feat5_title">Anti-Clip Soft Limiter</h3>
+            <p data-i18n="feat5_desc">Protects ears against sudden acoustic feedback spikes or loud wind blasts while supporting up to 250% voice gain.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-icon g">🔒</div>
+            <h3 data-i18n="feat6_title">Zero Cloud. Zero Servers.</h3>
+            <p data-i18n="feat6_desc">Audio flows exclusively inside RAM between Bluetooth endpoints and Android AudioTrack. Nothing is ever recorded or uploaded.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Comparison -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag" data-i18n="vs_tag">Fair Pricing</span>
+          <h2 data-i18n="vs_title">Why pay $200+ for dedicated intercom hardware?</h2>
+          <p data-i18n="vs_sub">Verify whether your own earbuds expose independent L/R microphones with the built-in 24-hour free trial first.</p>
+        </div>
+        <div class="vs-grid">
+          <div class="vs-card reveal">
+            <h3 data-i18n="vs_old_title">Traditional Helmet Intercom</h3>
+            <div class="vs-price mono" style="color:var(--text-secondary)" data-i18n="vs_old_price">$150 – $350</div>
+            <ul class="check-list">
+              <li><span class="cross-badge">✕</span> <span data-i18n="vs_old_1">Extra plastic box clamped onto helmet exterior</span></li>
+              <li><span class="cross-badge">✕</span> <span data-i18n="vs_old_2">Separate batteries, cables, and chargers to manage</span></li>
+              <li><span class="cross-badge">✕</span> <span data-i18n="vs_old_3">Heavy wind drag and permanent speaker installation</span></li>
+              <li><span class="cross-badge">✕</span> <span data-i18n="vs_old_4">Useless outside your motorcycle</span></li>
+            </ul>
+          </div>
+          <div class="vs-card winner reveal">
+            <span class="brand-badge" data-i18n="vs_new_badge">LIFETIME LICENSE</span>
+            <h3 style="margin-top:10px" data-i18n="vs_new_title">IntercomLE Pro</h3>
+            <div class="vs-price mono gradient-text" data-i18n="vs_new_price">~$4.99 / R$ 24.90</div>
+            <ul class="check-list">
+              <li><span class="check-badge">✓</span> <span data-i18n="vs_new_1">One-time purchase via Google Play (no monthly subscription)</span></li>
+              <li><span class="check-badge">✓</span> <span data-i18n="vs_new_2">24-hour full free trial to confirm TRUE_STEREO hardware fit</span></li>
+              <li><span class="check-badge">✓</span> <span data-i18n="vs_new_3">2-person sharing using one pair of TWS earbuds &amp; one phone</span></li>
+              <li><span class="check-badge">✓</span> <span data-i18n="vs_new_4">Moto 200 Hz preset, PTT tactical mode &amp; 5 custom themes</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compatible Earbuds Matrix -->
+    <section id="compat" class="band">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag" data-i18n="compat_tag">Hardware Matrix</span>
+          <h2 data-i18n="compat_title">Compatible LE Audio Earbuds (Examples)</h2>
+          <p data-i18n="compat_sub">Requires an Android 13+ phone and TWS earbuds with Bluetooth LE Audio (LC3). Because firmware differs per manufacturer, always verify L/R mic independence using the free 24h trial.</p>
+        </div>
+
+        <div class="filter-bar reveal" role="group" aria-label="Filter compatible brands">
+          <button class="filter-pill active" data-filter="all" type="button" data-i18n="filter_all">All Brands</button>
+          <button class="filter-pill" data-filter="samsung" type="button">Samsung</button>
+          <button class="filter-pill" data-filter="sony" type="button">Sony</button>
+          <button class="filter-pill" data-filter="jbl" type="button">JBL</button>
+          <button class="filter-pill" data-filter="google" type="button">Google Pixel</button>
+          <button class="filter-pill" data-filter="xiaomi" type="button">Xiaomi / Redmi</button>
+          <button class="filter-pill" data-filter="more" type="button" data-i18n="filter_more">More Brands</button>
+        </div>
+
+        <div class="grid-3">
+          <article class="card compat-card reveal" data-brand="samsung">
+            <span class="compat-brand">Samsung</span>
+            <h3>Galaxy Buds2 Pro / 3 / 3 Pro</h3>
+            <p data-i18n="compat_note_samsung">Galaxy Buds2 Pro, Galaxy Buds3, Galaxy Buds3 Pro. Note: on Samsung phones, Samsung Seamless Codec may take priority—check Bluetooth settings or updates to enable LE Audio.</p>
+          </article>
+          <article class="card compat-card reveal" data-brand="sony">
+            <span class="compat-brand">Sony</span>
+            <h3>WF-1000XM5 &amp; LinkBuds S</h3>
+            <p data-i18n="compat_note_sony">WF-1000XM5, LinkBuds S. Enable 'LE Audio Priority' inside the Sony | Sound Connect companion app.</p>
+          </article>
+          <article class="card compat-card reveal" data-brand="jbl">
+            <span class="compat-brand">JBL</span>
+            <h3>Tour Pro 2 / 3 &amp; Live 3 Series</h3>
+            <p data-i18n="compat_note_jbl">Tour Pro 2, Tour Pro 3, Live Buds 3, Live Beam 3, Live Flex 3. Native LC3 LE Audio support via firmware.</p>
+          </article>
+          <article class="card compat-card reveal" data-brand="google">
+            <span class="compat-brand">Google</span>
+            <h3>Pixel Buds Pro 2</h3>
+            <p data-i18n="compat_note_google">Google Pixel Buds Pro 2 on Pixel 7 / 8 / 9+ and Android 13+ LE Audio host phones.</p>
+          </article>
+          <article class="card compat-card reveal" data-brand="xiaomi">
+            <span class="compat-brand">Xiaomi / Redmi</span>
+            <h3>Buds 5 Pro &amp; Redmi Buds 5/6 Pro</h3>
+            <p data-i18n="compat_note_xiaomi">Xiaomi Buds 5 Pro, Redmi Buds 5 Pro, Redmi Buds 6 / 6 Pro via Android/HyperOS LE Audio toggle.</p>
+          </article>
+          <article class="card compat-card reveal" data-brand="more">
+            <span class="compat-brand">Sennheiser / EarFun / OnePlus</span>
+            <h3>MTW4 • Air Pro 3/4 • Buds Pro 2</h3>
+            <p><span data-i18n="compat_note_senn">Momentum True Wireless 4 with native Bluetooth 5.4 LE Audio / LC3 architecture.</span> • <span data-i18n="compat_note_earfun">EarFun Air Pro 3 &amp; Air Pro 4 (enable LE Audio inside the EarFun Audio app).</span> • <span data-i18n="compat_note_oneplus">OnePlus Buds Pro 2 with LE Audio (LC3) firmware updates enabled.</span></p>
+          </article>
+        </div>
+
+        <div class="callout reveal" style="margin-top:20px" data-i18n="compat_honest_callout">
+          Honest hardware rule: some earbuds advertise LE Audio for listening (output) but clone a single microphone onto both L and R channels. IntercomLE detects that immediately in your 24h free trial so you never buy blindly.
+        </div>
+      </div>
+    </section>
+
+    <!-- Closed Beta Founding Member Section -->
+    <section id="beta" class="band">
+      <div class="container">
+        <div class="beta-banner reveal">
+          <span class="brand-badge" data-i18n="beta_tag">Closed Beta Program</span>
+          <h2 style="margin:10px 0 8px" data-i18n="beta_title">20 Worldwide Founding Member Spots via Reddit</h2>
+          <p style="margin:0;color:var(--text-secondary);max-width:72ch" data-i18n="beta_sub">
+            Help test IntercomLE during Google Play's 14-day closed beta and receive an official Google Play Promo Code unlocking Lifetime PRO + the permanent gold FOUNDING MEMBER badge.
+          </p>
+
+          <div class="beta-steps">
+            <div class="beta-step">
+              <div class="num" data-i18n="bstep1_t">01. Join via Official Link</div>
+              <p style="margin:0;font-size:0.86rem;color:var(--text-secondary)" data-i18n="bstep1_d">Receive our Closed Testing web opt-in link via Reddit DM using the Gmail logged into your phone's Play Store.</p>
+            </div>
+            <div class="beta-step">
+              <div class="num" data-i18n="bstep2_t">02. Install from Play Store</div>
+              <p style="margin:0;font-size:0.86rem;color:var(--text-secondary)" data-i18n="bstep2_d">Tap 'Become a tester' and install IntercomLE strictly through Google Play (never sideload).</p>
+            </div>
+            <div class="beta-step">
+              <div class="num" data-i18n="bstep3_t">03. Redeem Gift Promo Code</div>
+              <p style="margin:0;font-size:0.86rem;color:var(--text-secondary)" data-i18n="bstep3_d">Redeem your unique Google Play Promo Code inside Play Store to unlock Lifetime PRO &amp; the Founding Member badge.</p>
+            </div>
+            <div class="beta-step">
+              <div class="num" data-i18n="bstep4_t">04. Keep Installed 14 Days</div>
+              <p style="margin:0;font-size:0.86rem;color:var(--text-secondary)" data-i18n="bstep4_d">Keep IntercomLE installed for at least 14 consecutive days, open every 1–2 days, and share your phone/earbud diagnostics.</p>
+            </div>
+          </div>
+
+          <div class="hero-actions" style="margin-bottom:0;flex-wrap:wrap">
+            <a href="support.html#beta-guide" class="btn btn-gold" data-i18n="beta_cta_reddit">Beta Rules &amp; How to Join</a>
+            <a href="mailto:intercomle.support@gmail.com?subject=IntercomLE%20Founding%20Member%20Beta" class="btn btn-outline" data-i18n="beta_cta_email">Email intercomle.support@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag" data-i18n="faq_tag">Questions &amp; Answers</span>
+          <h2 data-i18n="faq_title">Everything you should know before riding</h2>
+        </div>
+
+        <div class="faq-list reveal">
+          <div class="faq-item open">
+            <button class="faq-q" type="button"><span data-i18n="faq1_q">Does IntercomLE require mobile data or Wi-Fi?</span><span class="faq-chevron">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="faq1_a">Zero internet is required for intercom audio. All voice routing happens locally between your Bluetooth headset and phone memory. Internet is used solely by Google Play Billing when buying or restoring a license.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span data-i18n="faq2_q">Why don't all Bluetooth earbuds separate Left and Right mics?</span><span class="faq-chevron">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="faq2_a">Legacy Bluetooth Classic (SCO/HFP) always merges mic capture into 1 mono stream. Even with Bluetooth LE Audio, true independent stereo capture depends on your phone chipset and earbud firmware exposing 2 input channels instead of cloning 1 mic to both sides.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span data-i18n="faq3_q">What happens if audio pauses when the screen turns off?</span><span class="faq-chevron">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="faq3_a">Open Android Settings &gt; Apps &gt; IntercomLE &gt; Battery and set it to 'Unrestricted' so your phone manufacturer doesn't throttle the microphone foreground service while locked in your pocket.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button"><span data-i18n="faq4_q">Is riding with earbuds legal everywhere?</span><span class="faq-chevron">+</span></button>
+            <div class="faq-a"><div class="faq-a-inner" data-i18n="faq4_a">No! Many jurisdictions restrict wearing earphones while driving or riding a motorcycle (for example, Brazil under CTB Art. 252, VI). Check local traffic laws first and never interact with your phone screen while moving.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="legal-strip reveal" data-i18n="safety_notice">
+        Road Safety &amp; Traffic Law Notice: Always verify your local country, state, or regional traffic laws before using earbuds while riding or driving. In many jurisdictions, wearing earphones in traffic may result in fines or penalties. Use IntercomLE while driving/riding strictly at your own risk and never operate your screen while in motion.
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <strong style="color:var(--text-primary)">IntercomLE</strong>
+        <p style="margin:4px 0 6px" data-i18n="foot_desc">Real-time Bluetooth LE Audio stereo intercom for riders &amp; duos. Zero monthly fees.</p>
+        <span data-i18n="foot_copy">© 2026 IntercomLE. Built for Android 13+ Bluetooth LE Audio.</span>
+      </div>
+      <div class="footer-links">
+        <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="foot_terms">Terms of Use</a>
+        <a href="support.html" data-i18n="foot_support">Support &amp; Setup</a>
+        <a href="mailto:intercomle.support@gmail.com">intercomle.support@gmail.com</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Sticky Bottom CTA -->
+  <div class="mobile-sticky-cta" aria-label="Beta shortcut">
+    <span data-i18n="mob_sticky_text">20 Founding Beta spots • Lifetime PRO</span>
+    <a href="#beta" class="btn btn-gold" data-i18n="mob_sticky_cta">Get Invite</a>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

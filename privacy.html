@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-palette="emerald">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — IntercomLE</title>
+  <meta name="description" content="Official Privacy Policy for IntercomLE (LGPD, GDPR & Google Play Data Safety). 100% local ephemeral RAM audio processing." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-orb left"></div>
+    <div class="ambient-orb right"></div>
+  </div>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/favicon.svg" alt="IntercomLE icon" />
+        <span>IntercomLE</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#how" data-i18n="nav_how">How It Works</a>
+        <a href="privacy.html" class="active" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="terms.html" data-i18n="foot_terms">Terms of Use</a>
+        <a href="support.html" data-i18n="nav_support">Support</a>
+      </nav>
+      <div class="nav-controls">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button class="lang-btn active" data-lang="en" type="button">EN</button>
+          <button class="lang-btn" data-lang="pt" type="button">PT</button>
+          <button class="lang-btn" data-lang="es" type="button">ES</button>
+        </div>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme"></button>
+        <button id="mobileMenuBtn" class="icon-btn mobile-menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobileDrawer" class="mobile-drawer">
+      <a href="index.html#how" data-i18n="nav_how">How It Works</a>
+      <a href="privacy.html" data-i18n="foot_privacy">Privacy Policy</a>
+      <a href="terms.html" data-i18n="foot_terms">Terms of Use</a>
+      <a href="support.html" data-i18n="nav_support">Support</a>
+    </div>
+  </header>
+
+  <main class="container doc-wrap">
+    <article class="doc-card">
+      <h1 data-i18n="priv_title">Privacy Policy — IntercomLE</h1>
+      <div class="doc-meta mono" data-i18n="priv_updated">Last updated: November 23, 2026 • Publisher: IntercomLE</div>
+      <p data-i18n="priv_intro">
+        IntercomLE was engineered from the ground up around strict local audio processing with zero developer servers, zero analytics trackers, zero advertisements, and zero account sign-up.
+      </p>
+
+      <h2 data-i18n="priv_s1_t">1. Microphone &amp; Audio Data (100% Ephemeral RAM Processing)</h2>
+      <p data-i18n="priv_s1_p">
+        When you start an intercom session, IntercomLE uses Android's RECORD_AUDIO and MODIFY_AUDIO_SETTINGS permissions exclusively to read live stereo audio from your connected Bluetooth headset, apply optional DSP filters (high-pass wind cut, noise gate, limiter), and play it back immediately to the paired headset speakers. Audio is never saved to storage, cached, analyzed for voice recognition, or transmitted over any network.
+      </p>
+
+      <h2 data-i18n="priv_s2_t">2. Permissions Actually Requested &amp; Declared</h2>
+      <ul>
+        <li data-i18n="priv_s2_l1">RECORD_AUDIO &amp; FOREGROUND_SERVICE_MICROPHONE: Real-time voice routing and active foreground notification while your screen is locked.</li>
+        <li data-i18n="priv_s2_l2">BLUETOOTH_CONNECT: Detects connected Bluetooth LE Audio headsets, checks supported sample rates/channels, and routes communication audio.</li>
+        <li data-i18n="priv_s2_l3">POST_NOTIFICATIONS &amp; WAKE_LOCK: Displays quick Mute L / Mute R / Stop controls in the notification shade and keeps CPU awake during active rides.</li>
+        <li data-i18n="priv_s2_l4">INTERNET &amp; ACCESS_NETWORK_STATE (Google Play Billing SDK only): IntercomLE contains zero custom HTTP/socket calls in its own code. Network permissions are included solely by Google Play Billing Library (billing-ktx) to process and restore your Pro license via Google Play.</li>
+      </ul>
+
+      <h2 data-i18n="priv_s3_t">3. Device Identifiers, Backups &amp; Diagnostics Logs</h2>
+      <p data-i18n="priv_s3_p">
+        IntercomLE does not read ANDROID_ID, IMEI, Advertising ID, or location. Cloud backups and device-to-device data transfers are explicitly disabled via android:allowBackup='false' and data_extraction_rules. When you tap 'Copy Log' on the Diagnostics screen, personal Bluetooth device names (e.g. customized names) and full MAC addresses are automatically masked for your privacy before entering the clipboard.
+      </p>
+
+      <h2 data-i18n="priv_s4_t">4. In-App Purchases &amp; Pro Licensing</h2>
+      <p data-i18n="priv_s4_p">
+        Lifetime Pro access (intercom_le_pro_lifetime) and official promo code redemptions are processed strictly by Google Play Billing. We never see or store your credit card, billing address, or Google account password. Local license verification tokens are bound strictly to hardware-backed AndroidKeyStore HMAC signatures on your phone.
+      </p>
+
+      <h2 data-i18n="priv_s5_t">5. LGPD, GDPR &amp; Children's Privacy</h2>
+      <p data-i18n="priv_s5_p">
+        Because IntercomLE collects and transmits no personal user databases to external servers, there are no developer-held behavioral profiles to sell or share. You may erase all local app preferences anytime by clearing app storage or uninstalling. IntercomLE is not directed at children under 13 (or the minimum digital consent age in your country).
+      </p>
+
+      <h2 data-i18n="priv_s6_t">6. Privacy Contact</h2>
+      <p data-i18n="priv_s6_p">
+        For privacy questions under LGPD, GDPR, or Google Play Data Safety, contact: intercomle.support@gmail.com (IntercomLE — São Paulo, Brazil).
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <span data-i18n="foot_copy">© 2026 IntercomLE. Built for Android 13+ Bluetooth LE Audio.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="terms.html" data-i18n="foot_terms">Terms of Use</a>
+        <a href="support.html" data-i18n="foot_support">Support &amp; Setup</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
